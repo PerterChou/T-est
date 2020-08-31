@@ -1,4 +1,4 @@
-	/*该页面并不用于显示,只是用于返回projectTest数据库的(projectName)等数据*/
+	/*该页面并不用于显示,只是用于返回projectTest数据库的(projectName,taskName...)等数据*/
 	<?php
 	$conn = mysqli_connect("localhost","name","password");
 	mysqli_select_db($conn,"projectTest");
