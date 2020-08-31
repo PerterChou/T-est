@@ -88,9 +88,9 @@ function showProjects(){
 var myVar;
 window.onload = function(){
 	showProjects();
-	myVar = setInterval(function(){
+	/*myVar = setInterval(function(){
 			addProject();
-		},10000);
+		},10000);*/  //去掉注释将自动10s刷新TeamGo.html页面
 }
 
 function refleshCheck(checkbox) {
