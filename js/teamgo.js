@@ -93,6 +93,8 @@ window.onload = function(){
 		},10000);*/  //去掉注释将自动10s刷新TeamGo.html页面
 }
 
+/*去掉一下注释可自动刷新*/
+/*
 function refleshCheck(checkbox) {
 	if(document.getElementById("reflesh").checked == true){
 		clearInterval(myVar);
@@ -103,6 +105,7 @@ function refleshCheck(checkbox) {
 	}
 	// body...
 }
+*/
 function test(){
 	document.getElementById("web-content").style.display = "none";
 }
