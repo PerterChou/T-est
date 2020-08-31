@@ -1,3 +1,3 @@
 # T-est
 This is a Test
- [T-est](TeamGo.html) 
+ [T-est](https://perterchou.github.io/T-est/) 
