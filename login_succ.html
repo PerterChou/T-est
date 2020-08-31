@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TeamGo -登入成功</title>
+		<link rel="icon" href="img/T.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<script>
+			var counter = 0;
+			function delayURL() {
+				var delay = document.getElementById("time").innerHTML;
+				if(delay>0) {
+					delay--;
+					document.getElementById("time").innerHTML = delay;
+				} else {
+				window.top.location="TeamGo.html";
+			return;
+			}
+			setTimeout('delayURL()', 1000); //必须要加单引号
+			}
+			function floatDot(){
+
+				var dots = document.getElementsByClassName("dot");
+				dots[counter].style.backgroundColor = "black";
+				if(counter===2){
+				for(let i=0;i<2;i++){dots[i].style.backgroundColor="whitesmoke";};
+				setTimeout(function(){dots[2].style.backgroundColor = "whitesmoke"},800);
+				
+				}
+				counter = (counter+1)%3;
+			}
+			setInterval(function (){floatDot()},800);
+		</script>
+		<style>
+			body{
+				background-color: aliceblue;
+			}
+			p{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+	    <div id="lang"><p>登入成功，<span id="time">5</span>s后跳转...</p></div>
+		<div id="loading">
+			<div class="centerDiv">
+			<div class="dot"></div>
+			<div class="dot"></div>
+			<div class="dot"></div>
+			</div>
+		</div>
+		<script>delayURL();</script>
+	</body>
+</html>

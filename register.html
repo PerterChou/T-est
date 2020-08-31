@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TeamGo  -注册</title>
+	<link rel="icon" href="img/T.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script type="text/javascript" src="js/login.js"></script>
+	<style>
+		#login_frame{
+			height: 320px;
+		}
+	</style>
+</head>
+ 
+<body>
+<div id="place">
+<div id="btn">	
+	<span style="float: left;" class="face">*</span>
+	<span style="float: right;" class="face">*</span><br />
+	<span style="text-align: center;" class="face">-</span>
+</div>
+<div class="test">
+    <span class="bot"></span>
+    <span class="top"></span>
+    <div id="lang">我是TeamGo，点击我注册啊!</div>
+</div>
+<div id="login_frame">
+  <span id="close-button" class="dot" title="关闭">X</span>
+    <p id="image_logo"><img src="img/logo.gif"></p>
+ 
+    <form method="post" action="registerServlet">
+ 
+        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field" name="username"></p>
+        <p class="errInfo"></p>
+		<p><label class="label_input">密码</label><input type="password" id="password" class="text_field" name="password"></p>
+		<p class="errInfo"></p>
+		<p><label class="label_input">重复密码</label><input type="password" id="password-2" class="text_field" name = "password-2"></p>
+		<p class="errInfo"></p>
+        <div id="login_control">
+            <input type="button" id="btn_login" value="注册"/>
+            <input type="reset" id="btn_reset" value="重置"/>
+        </div>
+		<br />
+    </form>
+	<table border="0">
+	    <td colspan="2" align="center"> 已有账号,快去<a href="login.html">登入</a>吧</td>
+		</tr> 
+	</table>
+</div>
+</div>
+<script>
+	var counter = 0;
+	var counter1 = 0;
+	var btn = document.getElementById("btn");
+	var bg = document.getElementById("login_frame");
+	var talk = document.getElementsByClassName("test")[0];
+	var bot = document.getElementsByClassName("bot")[0];
+	var face = document.getElementsByClassName("face");
+	var user = document.getElementById("username");
+	var pass = document.getElementById("password");
+	var pass2 = document.getElementById("password-2");
+	var myVal = setInterval(function(){sayBegin()},5000);
+	btn.onmouseover = sayBegin;
+	function sayBegin(){
+		btn.style.backgroundColor = "#3CD8FF";
+		talk.style.backgroundColor = "#beceeb";
+		//talk.style.color = "black";
+		bot.style.borderRightColor = bot.style.borderBottomColor = "#beceeb";
+		face[0].innerText = face[1].innerText = "^";
+		face[2].innerText = "*";
+		counter+=1;
+		if(counter%3==0){
+			document.getElementById("lang").innerText = "还愣着干嘛啊!"
+		}else if(counter%2==0){
+			document.getElementById("lang").innerText = "不妨点击我下方的空白区域试试？"
+		}else{
+			document.getElementById("lang").innerText = "我是TeamGo，点击我注册啊!"
+			
+		}
+		
+	}
+	btn.onmouseout = sayOver;
+	function sayOver(){
+		btn.style.backgroundColor = "antiquewhite";
+		talk.style.backgroundColor = "aliceblue";
+		//talk.style.color = "aliceblue";
+		bot.style.borderRightColor = bot.style.borderBottomColor = "aliceblue";
+		face[0].innerText = face[1].innerText = "*";
+		face[2].innerText = "-";
+	}
+	btn.onclick = function(){
+		clearInterval(myVal);
+		sayOver();
+		bg.style.display = "block";
+	}
+	
+	var close = document.getElementById("close-button");
+	var bg = document.getElementById("login_frame");
+	close.onmouseover = function (){
+		close.style.color = "red";
+		close.style.backgroundColor = "#bbb";
+	}
+	close.onmouseout = function(){
+		close.style.color = "black";
+		close.style.backgroundColor = "whitesmoke";
+	}
+	close.onclick = function(){
+		bg.style.display = "none";
+		user.value = "";
+		pass.value = "";
+		pass2.value = "";
+		myVal = setInterval(function(){sayBegin()},5000);
+		
+	}
+	var btn_login = document.getElementById("btn_login");
+	var btn_reset = document.getElementById("btn_reset");
+	btn_login.onmouseover = btn_reset.onmouseover = function(){
+		btn_login.style.cursor = btn_reset.style.cursor = "pointer";
+	}
+document.getElementById("place").onmousedown = function (){
+	var valueOfChina =['富强','民主','文明','和谐','自由','平等','公正','法治','爱国','敬业','诚信','友善'];
+	var i = counter1 % 12;
+	document.getElementById("lang").innerText = valueOfChina[i];
+	document.getElementsByClassName("test")[0].style.backgroundColor = "#beceeb";
+	bot.style.borderRightColor = bot.style.borderBottomColor = "#beceeb";
+	counter1 +=1;
+}
+document.getElementById("place").onmouseup = function(){
+	document.getElementsByClassName("test")[0].style.backgroundColor = "aliceblue";
+	bot.style.borderRightColor = bot.style.borderBottomColor = "aliceblue";
+	
+}
+</script>
+</body>

@@ -1,0 +1,217 @@
+*{
+	cursor: url(../i/normal.ico),auto;
+}
+body {
+    /*background-image:url("img/team.jpg");*/
+    background-size:cover;
+    background-repeat: no-repeat;
+	background-color: aliceblue;
+}
+ 
+#login_frame {
+    width: 400px;
+    height: 260px;
+    padding: 13px;
+	display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+	background-color: whitesmoke;
+    border-radius: 10px;
+    text-align: center;
+}
+ 
+form p > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+ 
+#image_logo {
+    margin-top: 22px;
+}
+ 
+.label_input {
+    font-size: 14px;
+    font-family: 宋体;
+ 
+    width: 65px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+ 
+    color: white;
+    background-color: #3CD8FF;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+ 
+.text_field {
+    width: 278px;
+    height: 28px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+}
+input[type=button]:hover,input[type=reset]:hover{
+	opacity: 0.5;
+	color: black;
+}
+#btn_login {
+    font-size: 14px;
+    font-family: 宋体;
+ 
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    
+    color: white;
+    background-color: #3BD9FF;
+    border-radius: 6px;
+    border: 0;
+ 
+    float: left;
+}
+#btn_login {
+	cursor: url(../i/link.ico),auto;
+	
+}
+#btn_reset {
+	font-size: 14px;
+	font-family: 宋体;
+	 
+	width: 120px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	
+	color: white;
+	background-color: #3BD9FF;
+	border-radius: 6px;
+	border: 0;
+	 
+	float: right;
+}
+input{
+	cursor: url(../i/texto.ico),auto;
+	
+}
+#forget_pwd {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    float: right;
+    top: 5px;
+ 
+}
+ 
+#login_control {
+    padding: 0 28px;
+}
+.errInfo{
+	color: red;
+	text-align: center;
+	font-size: 10px;
+}
+#btn{
+	cursor: url(../i/yukino.ico),auto;
+	width: 100px;
+	height: 50px;
+	background-color: antiquewhite;
+	border-radius: 10px;
+	text-align: center;
+	color: aliceblue;
+	margin-left:50%;
+	margin-right: 50%;
+	margin-top: 200px;
+	transition: background-color 0.6s ease;
+	
+}
+#btn *{
+		cursor: url(../i/yukino.ico),auto;
+}
+
+    #close-button {
+        cursor: url(../i/normal.ico),auto;
+        font-size: 5px;
+		text-align: center;
+		transition: color 0.6s ease;
+    }
+	.dot *{
+		cursor: url(../i/no.ico),auto;
+	}
+	.dot {
+	cursor: url(../i/no.ico),auto;	 
+	 height: 13px;
+	  width: 13px;
+	  margin: 0 2px;
+	  background-color: whitesmoke;
+	  border-radius: 50%;
+	  display: inline-block;
+	  transition: background-color 0.6s ease;
+	  margin: 5px;
+	  float: left;
+	}
+.test{width:200px; padding:30px 20px; margin-left:60%; background:aliceblue; position:relative;
+	border-radius: 5px;
+	margin-top: -130px;
+	color: aliceblue;
+	transition: background-color 0.6s ease;
+	
+}
+.test span{width:0; height:0; font-size:0; overflow:hidden; position:absolute;}
+.test span.bot{
+    border-width:20px; 
+    border-style:solid; 
+    border-color:aliceblue aliceblue aliceblue aliceblue; 
+    left:-40px; 
+    top:40px;
+	transition: border-color 0.6s ease;
+	
+	
+}
+.test span.top{
+    border-width:10px 20px; 
+    border-style:dashed solid solid dashed; 
+    border-color:transparent aliceblue aliceblue transparent; 
+    left:-40px; 
+    top:60px;
+}
+.face{
+	font-size: 30px;
+	color: black;
+	margin: 5px;
+}
+#lang{
+	
+}
+#place{
+	width: 100%;
+	height: 375px;
+	cursor: url(../i/link.ico),auto;
+}
+#loading{
+	width: 16%;
+	padding-left: 1% ;
+	padding-right: 1% ;
+	border: 0.3125rem solid skyblue;
+	border-radius: 5px;
+	margin-left: 40%;
+	margin-right: 40%;
+	margin-top: 20%;
+	height: 50px;
+	background-color: aliceblue;
+}
+.centerDiv{
+	width: 100px;
+	height: 40px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-left: 25%;
+	margin-right: 25%;
+	display: block;
+
+}
