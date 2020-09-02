@@ -5,12 +5,11 @@
 	<title>TeamGo -We made it together</title>
 	<link rel="icon" href="img/T.png" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="css/teamgo.css"/>
+	<!--
 	<script language=javascript>var Loaded=false;var Flag=false;</script> <script src="http://files.cometsystems.com/javascript/lc2000.js" language=javascript></script> <script language=javascript>if(Loaded&&Flag)TheCometCursor("cd_electric",0,626);</script>
-	<style type="text/css">
-		body{
-     cursor:url('../i/1.cur'),auto;
-     }
-	</style>
+	-->
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
 </head>
 <body>
 	<header class="navbar">
@@ -46,14 +45,14 @@
 		<section class="navbar-tools">
 			<div id="navbar-toos">
 				<ul class="navbar-detail-tools">
-					<li class="navbar-detail-tool" onclick="showcreateMenu()">
+					<li class="navbar-detail-tool">
 						<div class="detail-creater">
-							<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/new.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;" onclick=""></span>
+							<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/new.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;" onclick="showcreateMenu()"></span>
 						</div>
 					</li>
-					<li class="navbar-detail-tool with-background" onclick="showSearchBoard()">
+					<li class="navbar-detail-tool with-background">
 						<div class="detail-searcher">
-							<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/search.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+							<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/search.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;" onclick="showSearchBoard()"></span>
 						</div>
 					</li>
 				</ul>
@@ -114,7 +113,7 @@
 						<span class="menu-item-content">项目</span>
 					</li>
 					<li class="separator"></li>
-					<li class="menu-item menu-item-item">
+					<li class="menu-item menu-item-item" onclick="showTaskCreatorView()">
 						<span class="next-badge navbar-detail-badge">
 							<span class="navbar-detail-app-icon" style="display: inline-block;">
 								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/task.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
@@ -250,6 +249,105 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal fade in">
+		<div class="modal-board fade in"></div>
+		<div class="task-creator-view creator-view modal-dialog">
+			<header class="creator-header">
+				<h4 class="creator-title">新建任务</h4>
+				<div class="closeBoardBtn" onclick="closeTaskCreatorView()"><svg t="1598885336572" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2684" width="200" height="200"><path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z" fill="#363F4D" p-id="2685"></path></svg></div>
+			</header>
+			<section class="creator-body">
+				<div class="creator-block task-creator-input">
+					<div class="editor" contenteditable="true" spellcheck="false"  placeholder="输入任务标题" id="task-editor"></div>	
+				</div>
+				<div class="basic-attrs-wrap">
+					<div class="basic-attrs-view">
+						<div class="task-executor">
+							<div class="task-executor-content">
+							<div class="task-executor circle">
+								<div class="executor" id='memberselect'>
+									<span class="executor-icon" style="background-image: url(img/executor.png);"></span>
+									<div class="executor-name">执行者</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="task-date-range">
+							<span class="task-date-range-icon icon"><svg t="1598945732379" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3418" width="200" height="200"><path d="M896 345V233a8 8 0 0 0-8-8H738v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H350v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H136a8 8 0 0 0-8 8v112h768z m0 64H128v479a8 8 0 0 0 8 8h752a8 8 0 0 0 8-8V409zM738 161h190c17.673 0 32 14.327 32 32v735c0 17.673-14.327 32-32 32H96c-17.673 0-32-14.327-32-32V193c0-17.673 14.327-32 32-32h190V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65h324V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65zM289 473h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z" p-id="3419"></path></svg></span>
+							<div class="task-date-wrap">
+								<div class="task-date-start">
+									<div class="date-wrap">
+										<div class="date-text">开始时间</div>
+									</div>
+								</div>
+								<div class="sepraline"></div>
+								<div class="task-date-end">
+									<div class="date-wrap">
+										<div class="date-text">截止时间</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="task-location-wrap">
+					<div class="stage-selector-wrap">
+						<div class="task-location-handler">
+							<div class="task-location-logo" style="background-image: url(img/nullproject.png);"></div>
+							<div class="task-location-text">项目</div>
+						</div>
+					</div>
+				</div>
+				<div class="creator-involve">
+					<div class="member-involve">
+						<div class="member-involve-header">
+							<span>参与者:</span>
+							<span style=""></span>
+						</div>
+						<ul class="member-involve-list">
+							<div><button class="add-handler">+</button></div>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<footer class="creator-footer">
+				<div class="btn-wrap">
+					<button class="btn" onclick="test()" disabled="disabled" id="task-btn">创建</button>
+				</div>
+			</footer>
+		</div>
+	</div>
+	
+	<div class="dropdown" id="member-dropdown" style="display: none;">
+		<div class="dropdown-container member-menu member-menu-component">
+			<div class="member-menu-component member-menu-body">
+				<div class="search-input-wrap">
+					<div class="search-wrap">
+							<input class="search-input" placeholder="搜索"/>
+					</div>
+				</div>
+				<div class="member-section">
+					<ul class="member-list">
+						<li class="select-group">
+							<div class="option-group-label">项目组1</div>
+							<ul>
+								<li class="member-list-item">
+									<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+									<div class="item-content-wrap">
+										<div class="item-main">
+											<div class="item-name">成员某</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<script>
 		/*
 		var resizeTime = 0;
@@ -279,6 +377,41 @@
 			}
 		}
 		
+		var tasktextarea = document.getElementById("task-editor");
+		tasktextarea.onkeyup = function(){
+			var str = tasktextarea.innerText;
+			
+			var taskbtn = document.getElementById("task-btn");
+			if(str.length>0&&!str.match(/^[ ]*$/)){
+				taskbtn.removeAttribute("disabled");
+			}else{
+				taskbtn.setAttribute("disabled","disabled");
+			}
+		}
+		
+		function e(obj){
+			return document.getElementById(obj);
+		}
+		e('memberselect').onclick=function(event){
+		    e('member-dropdown').style.display='block';
+		    stopBubble(event); 
+		    document.onclick=function(){
+				e('member-dropdown').style.display='none';
+		　		document.onclick=null;　
+		    }
+		}
+		  
+		e('member-dropdown').onclick=function(event){
+		    stopBubble(event); 
+		}
+		function stopBubble(e){  
+		    if(e && e.stopPropagation){
+		      e.stopPropagation();  //w3c
+			}else{
+		      window.event.cancelBubble=true; //IE
+		    }
+		}
+		</script>
 	</script>
 	<div style="display: none;" id="infospace"></div>
 </body>

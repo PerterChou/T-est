@@ -5,7 +5,7 @@
 	$query = "select projectName from project";
 	$result = mysqli_query($conn,$query);
 	$datanum = mysqli_num_rows($result);
-	echo "<ul id='projectList'>";
+	echo "<ul id='项目'>";
 	if( mysqli_num_rows($result) < 1){
 		echo "<li> 目前还没有任何项目!</li>";
 	}else{
@@ -15,7 +15,7 @@
 		}
 	}
 	echo "</ul>";
-	echo "<ul id='taskList'>";
+	echo "<ul id='任务'>";
 	$query = "select taskName from task";
 	$result = mysqli_query($conn,$query);
 	$datanum = mysqli_num_rows($result);
@@ -28,7 +28,7 @@
 		}
 	}
 	echo "</ul>";
-	echo "<ul id='todoList'>";
+	echo "<ul id='日程'>";
 	$query = "select todoName from schedule";
 	$result = mysqli_query($conn,$query);
 	$datanum = mysqli_num_rows($result);
@@ -41,7 +41,7 @@
 		}
 	}
 	echo "</ul>";
-	echo "<ul id='personList'>";
+	echo "<ul id='成员'>";
 	$query = "select pName from person";
 	$result = mysqli_query($conn,$query);
 	$datanum = mysqli_num_rows($result);

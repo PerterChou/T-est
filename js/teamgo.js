@@ -85,6 +85,10 @@ function showProjects(){
 		document.getElementById("web-content").style.display = "block";
 
 }
+function showMemberMenu(){
+	document.getElementById("member-dropdown").style.display="block";
+}
+
 var myVar;
 window.onload = function(){
 	showProjects();
@@ -132,5 +136,15 @@ function changeBorder1(){
 }
 function changeBorder2(){
 	document.getElementsByClassName("next-input next-medium input")[0].style.borderColor = "gray";
+}
+function closeTaskCreatorView(){
+	var closer = document.getElementsByClassName("modal fade in")[0];
+	closer.style.display = "none";
+}
+function showTaskCreatorView(){
+	var opener = document.getElementsByClassName("modal fade in")[0];
+	opener.style.display = "flex";
+	document.getElementsByClassName("next-overlay-wrapper")[0].style.display = "none";
+	
 }
 
