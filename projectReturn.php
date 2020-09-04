@@ -1,6 +1,6 @@
 	/*该页面并不用于显示,只是用于返回projectTest数据库的(projectName)等数据*/
 	<?php
-	$conn = mysqli_connect("localhost","yukishita","happy134");
+	$conn = mysqli_connect("localhost","name","password");
 	mysqli_select_db($conn,"projectTest");
 	$query = "select projectName from project";
 	$result = mysqli_query($conn,$query);
