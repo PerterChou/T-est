@@ -23,7 +23,7 @@ function addProject(){
 		if(xmlhttp.readyState==4 && xmlhttp.status == 200){
 		list.innerHTML = xmlhttp.responseText; //将返回的内容输出到id=projectList的<ul></ul>
 		//var proList = list.getElementsByTagName("li");//获取ul里的所有存有projectName的li节点
-		var proList = list.querySelectorAll("#projectList>li");
+		var proList = list.querySelectorAll("#项目>li");
 		for(var i=0;i<proList.length;i++){
 			var newContainer = document.createElement("div");
 			/*下面一行用于制作一个项目卡片,还未输出*/
@@ -32,8 +32,10 @@ function addProject(){
 			newContainer.getElementsByClassName("project-name")[0].innerText = proList[i].innerText;
 			/*下面一行用于在每一次末尾输出项目卡片*/
 			cardParent.appendChild(newContainer);
+			
 		}
 		}
+		
 	}
 	xmlhttp.open("GET","projectReturn.php?t="+Math.random(),true);//获取服务器端projectReturn.php的内容
 	xmlhttp.send();
@@ -80,13 +82,11 @@ function showAllSearch(){
 
 /*将隐藏的web-content节点显示出来*/
 
+/*
 function showProjects(){
 		addProject();
 		document.getElementById("web-content").style.display = "block";
 
-}
-function showMemberMenu(){
-	document.getElementById("member-dropdown").style.display="block";
 }
 
 var myVar;
@@ -107,9 +107,11 @@ function refleshCheck(checkbox) {
 	}
 	// body...
 }
+*/
 function test(){
 	document.getElementById("web-content").style.display = "none";
 }
+/*
 var createNum = 0;
 function showcreateMenu(){
 	if(createNum%2==0){
@@ -119,17 +121,25 @@ function showcreateMenu(){
 	}
 	createNum++;
 }
+*/
 function showSearchBoard(){
+	var m=window.innerWidth-document.body.clientWidth;//滚动条的宽度
+	document.documentElement.style.marginRight=m+"px";
 	var sVar = document.getElementsByClassName("next-overlay-wrapper searcher");
 	sVar[0].getElementsByClassName("next-overlay-wrapper-board")[0].style.opacity = 0.3;
 	sVar[0].style.display = "flex";
 	showAllSearch();
 	document.getElementsByClassName('tabs-tabpane')[0].classList.add("active");
+	document.documentElement.style.overflowY = 'hidden'; 
+	document.documentElement.style.overflowX = 'hidden';
 }
 function closeSearchBoard(){
 	var sVar = document.getElementsByClassName("next-overlay-wrapper searcher");
 	sVar[0].getElementsByClassName("next-overlay-wrapper-board")[0].style.opacity = 0;
 	sVar[0].style.display = "none";
+	document.documentElement.style.overflowY = 'scroll';
+	document.documentElement.style.marginRight="0px";
+	
 }
 function changeBorder1(){
 	document.getElementsByClassName("next-input next-medium input")[0].style.borderColor = "dodgerblue";
@@ -137,14 +147,19 @@ function changeBorder1(){
 function changeBorder2(){
 	document.getElementsByClassName("next-input next-medium input")[0].style.borderColor = "gray";
 }
+/*
 function closeTaskCreatorView(){
-	var closer = document.getElementsByClassName("modal fade in")[0];
+	var closer = document.getElementsByClassName("modal fade in")[1];
 	closer.style.display = "none";
+	document.documentElement.style.overflowY = 'scroll'; 
+	document.documentElement.style.paddingRight="0px";
 }
 function showTaskCreatorView(){
-	var opener = document.getElementsByClassName("modal fade in")[0];
+	var m=window.innerWidth-document.body.clientWidth;//滚动条的宽度
+	document.documentElement.style.paddingRight=m+"px";
+	var opener = document.getElementsByClassName("modal fade in")[1];
 	opener.style.display = "flex";
 	document.getElementsByClassName("next-overlay-wrapper")[0].style.display = "none";
-	
+	document.documentElement.style.overflowY = 'hidden'; 
 }
-
+*/
