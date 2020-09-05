@@ -1,93 +1,125 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>TeamGo -We made it together</title>
-	<link rel="icon" href="img/T.png" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="css/teamgo.css"/>
-	<!--
-	<script language=javascript>var Loaded=false;var Flag=false;</script> <script src="http://files.cometsystems.com/javascript/lc2000.js" language=javascript></script> <script language=javascript>if(Loaded&&Flag)TheCometCursor("cd_electric",0,626);</script>
-	-->
+	<head>
+		<meta charset="utf-8">
+		<title>TeamGo -We made it together</title>
+		<link rel="icon" href="img/T.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/teamgo.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css" />
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script src="js/jquery.datetimepicker.full.js"></script>
+		<script src="js/teamgo_jquery.js"></script>
+		<!--
 	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+-->
+		<script>
+			$(document).ready(function(){
+			var logic = function( currentDateTime ){
+				/*
+				if (currentDateTime && currentDateTime.getDay() == 6){
+					this.setOptions({
+						minTime:'11:00'
+					});
+				}else
+					this.setOptions({
+						minTime:'8:00'
+					});
+					*/
+			};
+			$('.datetime-set').datetimepicker({
+				onChangeDateTime:logic,
+				onShow:logic,
+				step:10
+			});
+			$.datetimepicker.setLocale('ch');
+			
+			
+		});
+		
 
-</head>
-<body>
-	<header class="navbar">
-		<section class="teamgo-logo">
-			<div id="teamgo-logo" >
-			<a href="TeamGo.html">
-				<div class="navbardetail-logo" style="background-image: url(img/T.png);"></div>
-			</a>
-			</div>
-		</section>
-		<section class="navbar-apps">
-			<div id="navbar-apps">
-				<ul class="navbar-detail-apps">
-					<li class="navbar-detail-app" onclick="showProjects()">
-						<span class="next-badge navbar-detail-badge">
-							<span class="navbar-detail-app-icon" style="display: inline-block;">
-								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/project.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+		
+	</script>
+	</head>
+	<body>
+		<header class="navbar">
+			<section class="teamgo-logo">
+				<div id="teamgo-logo">
+					<a href="TeamGo.html">
+						<div class="navbardetail-logo" style="background-image: url(img/T.png);"></div>
+					</a>
+				</div>
+			</section>
+			<section class="navbar-apps">
+				<div id="navbar-apps">
+					<ul class="navbar-detail-apps">
+						<li class="navbar-detail-app" data-app="project">
+							<span class="next-badge navbar-detail-badge">
+								<span class="navbar-detail-app-icon" style="display: inline-block;">
+									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/project.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+								</span>
 							</span>
-						</span>
-						<span class="navbar-detail-apps-name">项目</span>
-					</li>
-					<li class="navbar-detail-app" onclick="test()">
-						<span class="navbar-detail-badge">
-							<span class="navbar-detail-app-icon" style="display: inline-block;">
-								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/other.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+							<span class="navbar-detail-apps-name">项目</span>
+						</li>
+						<li class="navbar-detail-app" onclick="test()">
+							<span class="navbar-detail-badge">
+								<span class="navbar-detail-app-icon" style="display: inline-block;">
+									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/other.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+								</span>
 							</span>
-						</span>
-						<span class="navbar-detail-apps-name">暂时</span>
-					</li>
-				</ul>
-			</div>
-		</section>
-		<section class="navbar-tools">
-			<div id="navbar-toos">
-				<ul class="navbar-detail-tools">
-					<li class="navbar-detail-tool">
-						<div class="detail-creater">
-							<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/new.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;" onclick="showcreateMenu()"></span>
+							<span class="navbar-detail-apps-name">暂时</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="navbar-tools">
+				<div id="navbar-toos">
+					<ul class="navbar-detail-tools">
+						<li class="navbar-detail-tool">
+							<div class="detail-creater">
+								<span class="mybutton" data-something="creator" style="width: 100%; height: 100%; display: inline-block; background-image: url(img/new.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"
+								></span>
+							</div>
+						</li>
+						<li class="navbar-detail-tool with-background">
+							<div class="detail-searcher">
+								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/search.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"
+								 onclick="showSearchBoard()"></span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="navbar-user">
+				<div id="navbar-user">
+					<div class="navbar-user-box">
+						<div class="navbar-detail-user">
+							<span class="mybutton" data-something="avator" style="width: 100%; height: 100%; display: inline-block; background-image: url(img/user.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
 						</div>
-					</li>
-					<li class="navbar-detail-tool with-background">
-						<div class="detail-searcher">
-							<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/search.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;" onclick="showSearchBoard()"></span>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</section>
-		<section class="navbar-user">
-			<div id="navbar-user">
-				<div class="navbar-user-box">
-					<div class="navbar-detail-user">
-						<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/user.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
 
-	</header>
-	<div id="web-content">
-		<div class="teamgo-view teamgo-wrap clearfix is-projects">
-			<div class="workspace-section">
-				<div class="tab-content">
-					<div class="portal-view">
-						<div class="portal_">
-							<div class="portal-content-container">
-								<div class="portal-card">
-									<div class="portal-card-main">
-										<div class="portal-card-header">
-											我的项目(每10秒自动刷新一次)
-											<form>
-												<input type="checkbox" name="reflesh" id="reflesh" onclick="refleshCheck(this)">停止刷新
-											</form>
-										</div>
-										<div class="portal-card-projects">
-											<ul class="card-grid" id="card">
+		</header>
+		<div id="web-content">
+			<div class="teamgo-view teamgo-wrap clearfix is-projects">
+				<div class="workspace-section">
+					<div class="tab-content">
+						<div class="portal-view">
+							<div class="portal_">
+								<div class="portal-content-container">
+									<div class="portal-card">
+										<div class="portal-card-main">
+											<div class="portal-card-header">
+												我的项目(每10秒自动刷新一次)
+												<form>
+													<input type="checkbox" name="reflesh" id="reflesh" onclick="refleshCheck(this)">停止刷新
+												</form>
+											</div>
+											<div class="portal-card-projects">
+												<ul class="card-grid" id="card">
 
-											</ul>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -97,111 +129,110 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<script type="text/javascript" src="js/teamgo.js"></script>
-	<div class="next-overlay-wrapper">
-		
-		<div class="next-overlay-inner">
-			<div id="navbar-detail-create-menu" class="navbar-detail-create-menu">
-				<ul class="menu">
-					<li class="menu-item menu-item-item">
-						<span class="next-badge navbar-detail-badge">
-							<span class="navbar-detail-app-icon" style="display: inline-block;">
-								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/newproject.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+		<script type="text/javascript" src="js/teamgo.js"></script>
+		<div class="next-overlay-wrapper aBoard" data-something="creator">
+
+			<div class="next-overlay-inner">
+				<div id="navbar-detail-create-menu" class="navbar-detail-create-menu">
+					<ul class="menu">
+						<li class="menu-item menu-item-item" data-modal="modal1">
+							<span class="next-badge navbar-detail-badge">
+								<span class="navbar-detail-app-icon" style="display: inline-block;">
+									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/newproject.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+								</span>
 							</span>
-						</span>
-						<span class="menu-item-content">项目</span>
-					</li>
-					<li class="separator"></li>
-					<li class="menu-item menu-item-item" onclick="showTaskCreatorView()">
-						<span class="next-badge navbar-detail-badge">
-							<span class="navbar-detail-app-icon" style="display: inline-block;">
-								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/task.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+							<span class="menu-item-content">项目</span>
+						</li>
+						<li class="separator"></li>
+						<li class="menu-item menu-item-item" data-modal="modal2">
+							<span class="next-badge navbar-detail-badge">
+								<span class="navbar-detail-app-icon" style="display: inline-block;">
+									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/task.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+								</span>
 							</span>
-						</span>
-						<span class="menu-item-content">任务</span>
-					</li>
-					<li class="menu-item menu-item-item">
-						<span class="next-badge navbar-detail-badge">
-							<span class="navbar-detail-app-icon" style="display: inline-block;">
-								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/schedule.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+							<span class="menu-item-content">任务</span>
+						</li>
+						<li class="menu-item menu-item-item" data-modal="modal3">
+							<span class="next-badge navbar-detail-badge">
+								<span class="navbar-detail-app-icon" style="display: inline-block;">
+									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/schedule.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+								</span>
 							</span>
-						</span>
-						<span class="menu-item-content">日程</span>
-					</li>
-					<li class="menu-item menu-item-item">
-						<span class="next-badge navbar-detail-badge">
-							<span class="navbar-detail-app-icon" style="display: inline-block;">
-								<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/other.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+							<span class="menu-item-content">日程</span>
+						</li>
+						<li class="menu-item menu-item-item" data-modal="modal4">
+							<span class="next-badge navbar-detail-badge">
+								<span class="navbar-detail-app-icon" style="display: inline-block;">
+									<span style="width: 100%; height: 100%; display: inline-block; background-image: url(img/other.png); background-position: center center; background-repeat: no-repeat; background-size: 80%;"></span>
+								</span>
 							</span>
-						</span>
-						<span class="menu-item-content">其他</span>
-					</li>
-				</ul>
+							<span class="menu-item-content">其他</span>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="next-overlay-wrapper searcher">
-		<div class="next-overlay-wrapper-board">
-		</div>
-		<div class="next-dialog next-overlay-inner">
-			<div class="next-loading">
-				<div class="next-loading-wrap">
-					<div class="next-dialog-body">
-						<div class="searcher-lite searcher-lite-large">
-							<section class="searcher-lite-header">
-								<span class="next-input next-medium input" >
-									<span class="next-input-inner">
-										<span class="next-badge navbar-detail-badge" style="margin-left: 10px;vertical-align: middle;">
-											<span class="navbar-detail-app-icon" style="display: inline-block;">
-												<span style=" width: 100%; height: 100%; display: inline-block; background-image: url(img/searcher.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+		<div class="next-overlay-wrapper searcher">
+			<div class="next-overlay-wrapper-board">
+			</div>
+			<div class="next-dialog next-overlay-inner">
+				<div class="next-loading">
+					<div class="next-loading-wrap">
+						<div class="next-dialog-body">
+							<div class="searcher-lite searcher-lite-large">
+								<section class="searcher-lite-header">
+									<span class="next-input next-medium input">
+										<span class="next-input-inner">
+											<span class="next-badge navbar-detail-badge" style="margin-left: 10px;vertical-align: middle;">
+												<span class="navbar-detail-app-icon" style="display: inline-block;">
+													<span style=" width: 100%; height: 100%; display: inline-block; background-image: url(img/searcher.png); background-position: center center; background-repeat: no-repeat; background-size: 100%;"></span>
+												</span>
 											</span>
 										</span>
+										<input placeholder="搜索.." height="100%" autocomplete="off" value onfocus="changeBorder1()" onblur="changeBorder2()">
 									</span>
-									<input placeholder="搜索.." height="100%" autocomplete="off" value onfocus="changeBorder1()" onblur="changeBorder2()">
-								</span>
-								<button name="close" type="button" class="closeBoardBtn" id="closeD" onclick="closeSearchBoard()">
-									X
-								</button>
-							</section>
-							<section>
-								<div class="searcher-content">
-									<div class="searcher-component">
-										<div class="tabs-bar">
-											<div class="tabs-bar-container">
-												<div class="tabs-bar-scroll">
-													<ul class="tabs-bar-items">
-														<li class="tabs-bar-item" >
-															<div class="tabs-bar-item-inner active" onclick="showAllSearch()" id="0">
-																<span class="tabs-bar-item-title">全部</span>
-															</div>
-														</li>
-														<li class="tabs-bar-item" >
-															<div class="tabs-bar-item-inner" id="1">
-																<span class="tabs-bar-item-title">项目</span>
-															</div>
-														</li>
-														<li class="tabs-bar-item">
-															<div class="tabs-bar-item-inner" id="2">
-																<span class="tabs-bar-item-title">任务</span>
-															</div>
-														</li>
-														<li class="tabs-bar-item" >
-															<div class="tabs-bar-item-inner" id="3">
-																<span class="tabs-bar-item-title" >日程</span>
-															</div>
-														</li>
-														<li class="tabs-bar-item" >
-															<div class="tabs-bar-item-inner" id="4">
-																<span class="tabs-bar-item-title" >成员</span>
-															</div>
-														</li>
-													</ul>
+									<button name="close" type="button" class="closeBoardBtn" id="closeD" onclick="closeSearchBoard()">
+										X
+									</button>
+								</section>
+								<section>
+									<div class="searcher-content">
+										<div class="searcher-component">
+											<div class="tabs-bar">
+												<div class="tabs-bar-container">
+													<div class="tabs-bar-scroll">
+														<ul class="tabs-bar-items">
+															<li class="tabs-bar-item">
+																<div class="tabs-bar-item-inner active" onclick="showAllSearch()" id="0">
+																	<span class="tabs-bar-item-title">全部</span>
+																</div>
+															</li>
+															<li class="tabs-bar-item">
+																<div class="tabs-bar-item-inner" id="1">
+																	<span class="tabs-bar-item-title">项目</span>
+																</div>
+															</li>
+															<li class="tabs-bar-item">
+																<div class="tabs-bar-item-inner" id="2">
+																	<span class="tabs-bar-item-title">任务</span>
+																</div>
+															</li>
+															<li class="tabs-bar-item">
+																<div class="tabs-bar-item-inner" id="3">
+																	<span class="tabs-bar-item-title">日程</span>
+																</div>
+															</li>
+															<li class="tabs-bar-item">
+																<div class="tabs-bar-item-inner" id="4">
+																	<span class="tabs-bar-item-title">成员</span>
+																</div>
+															</li>
+														</ul>
+													</div>
 												</div>
 											</div>
-										</div>
-										<div class="tabs-content">
-											<!--
+											<div class="tabs-content">
+												<!--
 											
 											<div class="tabs-tabpane">
 												<div class="content">
@@ -229,127 +260,390 @@
 												</div>
 											</div>
 										-->
-											<div class="tabs-tabpane">
-												<div class="content">
-													<div class="search-result-wrap">
-																									
+												<div class="tabs-tabpane">
+													<div class="content">
+														<div class="search-result-wrap">
+
+
+														</div>
 
 													</div>
-
 												</div>
-											</div>
 
+											</div>
 										</div>
 									</div>
-								</div>
-							</section>
+								</section>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div class="modal fade in">
-		<div class="modal-board fade in"></div>
-		<div class="task-creator-view creator-view modal-dialog">
-			<header class="creator-header">
-				<h4 class="creator-title">新建任务</h4>
-				<div class="closeBoardBtn" onclick="closeTaskCreatorView()"><svg t="1598885336572" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2684" width="200" height="200"><path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z" fill="#363F4D" p-id="2685"></path></svg></div>
-			</header>
-			<section class="creator-body">
-				<div class="creator-block task-creator-input">
-					<div class="editor" contenteditable="true" spellcheck="false"  placeholder="输入任务标题" id="task-editor"></div>	
-				</div>
-				<div class="basic-attrs-wrap">
-					<div class="basic-attrs-view">
-						<div class="task-executor">
-							<div class="task-executor-content">
-							<div class="task-executor circle">
-								<div class="executor" id='memberselect'>
-									<span class="executor-icon" style="background-image: url(img/executor.png);"></span>
-									<div class="executor-name">执行者</div>
-								</div>
+		<div id="saysomething" style="display: none;">行かないで...</div>
+		<div id="hello" style="display:none;width:250;height:50;z-index:5200;border-radius: 5px;font-family:yuki;"></div>
+		
+		<div class="next-overlay-wrapper aBoard" data-something="avator">
+			<div class="next-overlay-inner" style="top: 70vh;">
+				<div class="avator-menu">
+					<ul class="avator-menu-item">
+						
+						<li class="avator-menu-item-item">
+							<div class="avator-menu-item-item-inner">
+								<span class="avator-menu-item-item-text">账号设置</span>
 							</div>
+						</li>
+						<li class="avator-menu-item-item">
+							<div class="avator-menu-item-item-inner">
+								<span class="avator-menu-item-item-text">暂时</span>
 							</div>
-						</div>
-						<div class="task-date-range">
-							<span class="task-date-range-icon icon"><svg t="1598945732379" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3418" width="200" height="200"><path d="M896 345V233a8 8 0 0 0-8-8H738v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H350v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H136a8 8 0 0 0-8 8v112h768z m0 64H128v479a8 8 0 0 0 8 8h752a8 8 0 0 0 8-8V409zM738 161h190c17.673 0 32 14.327 32 32v735c0 17.673-14.327 32-32 32H96c-17.673 0-32-14.327-32-32V193c0-17.673 14.327-32 32-32h190V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65h324V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65zM289 473h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z" p-id="3419"></path></svg></span>
-							<div class="task-date-wrap">
-								<div class="task-date-start">
-									<div class="date-wrap">
-										<div class="date-text">开始时间</div>
-									</div>
-								</div>
-								<div class="sepraline"></div>
-								<div class="task-date-end">
-									<div class="date-wrap">
-										<div class="date-text">截止时间</div>
-									</div>
-								</div>
+						</li>
+					</ul>
+					<ul class="avator-menu-item">
+						<li class="separator"></li>
+						<li class="avator-menu-item-item Leave" id="leave" >
+							<div class="avator-menu-item-item-inner">
+								<span class="avator-menu-item-item-text">退出登录</span>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="task-location-wrap">
-					<div class="stage-selector-wrap">
-						<div class="task-location-handler">
-							<div class="task-location-logo" style="background-image: url(img/nullproject.png);"></div>
-							<div class="task-location-text">项目</div>
-						</div>
-					</div>
-				</div>
-				<div class="creator-involve">
-					<div class="member-involve">
-						<div class="member-involve-header">
-							<span>参与者:</span>
-							<span style=""></span>
-						</div>
-						<ul class="member-involve-list">
-							<div><button class="add-handler">+</button></div>
-						</ul>
-					</div>
-				</div>
-			</section>
-			<footer class="creator-footer">
-				<div class="btn-wrap">
-					<button class="btn" onclick="test()" disabled="disabled" id="task-btn">创建</button>
-				</div>
-			</footer>
-		</div>
-	</div>
-	
-	<div class="dropdown" id="member-dropdown" style="display: none;">
-		<div class="dropdown-container member-menu member-menu-component">
-			<div class="member-menu-component member-menu-body">
-				<div class="search-input-wrap">
-					<div class="search-wrap">
-							<input class="search-input" placeholder="搜索"/>
-					</div>
-				</div>
-				<div class="member-section">
-					<ul class="member-list">
-						<li class="select-group">
-							<div class="option-group-label">项目组1</div>
-							<ul>
-								<li class="member-list-item">
-									<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
-									<div class="item-content-wrap">
-										<div class="item-main">
-											<div class="item-name">成员某</div>
-										</div>
-									</div>
-								</li>
-							</ul>
+							<span style="display: block;width: 20px;height: 20px;margin-left: 100px;"><svg t="1599236773408" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2384" width="20" height="20"><path d="M702.94996 958.89419c-8.375761 0-16.751522-3.196809-23.14514-9.590426L265.159102 534.658046c-12.787234-12.777001-12.787234-33.513278 0-46.289256L679.80482 73.722048c12.787234-12.787234 33.502022-12.787234 46.289256 0 12.787234 12.777001 12.787234 33.513278 0 46.289256L334.593498 511.512906l391.501602 391.501602c12.787234 12.777001 12.787234 33.513278 0 46.289256C719.701482 955.697381 711.325721 958.89419 702.94996 958.89419z" p-id="2385"></path></svg></span>
+							
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<script>
-		/*
+		<div class="modal fade in" data-modal="modal2">
+			<div class="modal-board fade in"></div>
+			<div class="task-creator-view creator-view modal-dialog">
+				<header class="creator-header">
+					<h4 class="creator-title">新建任务</h4>
+					<div class="closeBoardBtn" data-modal="modal2"><svg t="1598885336572" class="icon" viewBox="0 0 1024 1024"
+						 version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2684" width="20" height="20">
+							<path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z"
+							 fill="#363F4D" p-id="2685"></path>
+						</svg></div>
+				</header>
+				<section class="creator-body">
+					<div class="creator-block task-creator-input">
+						<div class="editor" contenteditable="true" spellcheck="false" placeholder="输入任务标题" id="task-editor"></div>
+					</div>
+					<div class="basic-attrs-wrap">
+						<div class="basic-attrs-view">
+							<div class="task-executor">
+								<div class="task-executor-content">
+									<div class="task-executor circle">
+										<div class="executor selector" id='memberselect' >
+											<span class="executor-icon" style="background-image: url(img/executor.png);"></span>
+											<div class="executor-name"><span class="mybutton" data-something="member">执行者</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="task-date-range">
+								<span class="task-date-range-icon icon"><svg t="1598945732379" class="icon" viewBox="0 0 1024 1024" version="1.1"
+									 xmlns="http://www.w3.org/2000/svg" p-id="3418" width="200" height="200">
+										<path d="M896 345V233a8 8 0 0 0-8-8H738v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H350v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H136a8 8 0 0 0-8 8v112h768z m0 64H128v479a8 8 0 0 0 8 8h752a8 8 0 0 0 8-8V409zM738 161h190c17.673 0 32 14.327 32 32v735c0 17.673-14.327 32-32 32H96c-17.673 0-32-14.327-32-32V193c0-17.673 14.327-32 32-32h190V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65h324V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65zM289 473h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z"
+										 p-id="3419"></path>
+									</svg></span>
+								<div class="task-date-wrap">
+									<div class="task-date-start">
+										<div class="date-wrap">
+											<div class="date-text">开始时间</div>
+											<input class="datetime-set" id="startDate" type="text" />
+
+										</div>
+									</div>
+
+									<div class="task-date-end">
+										<div class="date-wrap">
+											<div class="date-text">截止时间</div>
+											<input class="datetime-set" id="endDate" type="text" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="task-location-wrap">
+						<div class="stage-selector-wrap">
+							<div class="task-location-handler selector">
+								<div class="task-location-logo" style="background-image: url(img/nullproject.png);"></div>
+								<div class="task-location-text"><span class="mybutton" data-something="project">项目</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="creator-involve">
+						<div class="member-involve">
+							<div class="member-involve-header">
+								<span>参与者:</span>
+								<span style=""></span>
+							</div>
+							<ul class="member-involve-list">
+								<div><button class="mybutton add-handler" data-something="involver">+</button></div>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<footer class="creator-footer">
+					<div class="btn-wrap">
+						<button class="btn" onclick="test()" disabled="disabled" id="task-btn">创建</button>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<div class="modal fade in" data-modal="modal3">
+			<div class="modal-board fade in"></div>
+			<div class="task-creator-view creator-view modal-dialog">
+				<header class="creator-header">
+					<h4 class="creator-title">新建日程</h4>
+					<div data-modal="modal3" class="closeBoardBtn"><svg t="1598885336572" class="icon" viewBox="0 0 1024 1024"
+						 version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2684" width="20" height="20">
+							<path d="M566.97558594 521.09667969L856.8828125 231.18945312c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355468l-1.58203125-1.58203125c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0L512 466.51660156 222.09277344 176.21386719c-14.63378906-14.63378906-38.75976563-14.63378906-53.39355469 0l-1.58203125 1.58203125c-15.02929688 14.63378906-15.02929688 38.75976563 0 53.39355469l289.90722656 289.90722656L167.1171875 811.00390625c-14.63378906 14.63378906-14.63378906 38.75976563 0 53.39355469l1.58203125 1.58203125c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0L512 576.07226563 801.90722656 865.97949219c14.63378906 14.63378906 38.75976563 14.63378906 53.39355469 0l1.58203125-1.58203125c14.63378906-14.63378906 14.63378906-38.75976563 0-53.39355469L566.97558594 521.09667969z"
+							 fill="#363F4D" p-id="2685"></path>
+						</svg></div>
+				</header>
+				<section class="creator-body">
+					<div class="creator-block task-creator-input">
+						<div class="editor" contenteditable="true" spellcheck="false" placeholder="输入日程标题" id="task-editor"></div>
+					</div>
+					<div class="basic-attrs-wrap">
+						<div class="basic-attrs-view">
+							
+							<div class="task-date-range">
+								<span class="task-date-range-icon icon"><svg t="1598945732379" class="icon" viewBox="0 0 1024 1024" version="1.1"
+									 xmlns="http://www.w3.org/2000/svg" p-id="3418" width="200" height="200">
+										<path d="M896 345V233a8 8 0 0 0-8-8H738v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H350v45c0 17.673-14.327 32-32 32-17.673 0-32-14.327-32-32v-45H136a8 8 0 0 0-8 8v112h768z m0 64H128v479a8 8 0 0 0 8 8h752a8 8 0 0 0 8-8V409zM738 161h190c17.673 0 32 14.327 32 32v735c0 17.673-14.327 32-32 32H96c-17.673 0-32-14.327-32-32V193c0-17.673 14.327-32 32-32h190V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65h324V96c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v65zM289 473h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m194-256h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z m0 128h58c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32h-58c-17.673 0-32-14.327-32-32 0-17.673 14.327-32 32-32z"
+										 p-id="3419"></path>
+									</svg></span>
+								<div class="task-date-wrap">
+									<div class="task-date-start">
+										<div class="date-wrap">
+											<div class="date-text">开始时间</div>
+											<input class="datetime-set" id="startDate" type="text" />
+		
+										</div>
+									</div>
+		
+									<div class="task-date-end">
+										<div class="date-wrap">
+											<div class="date-text">截止时间</div>
+											<input class="datetime-set" id="endDate" type="text" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="task-location-wrap">
+						<div class="stage-selector-wrap">
+							<div class="task-location-handler selector">
+								<div class="task-location-logo" style="background-image: url(img/nullproject.png);"></div>
+								<div class="task-location-text"><span class="mybutton" data-something="project">项目</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="creator-involve">
+						<div class="member-involve">
+							<div class="member-involve-header">
+								<span>参与者:</span>
+								<span style=""></span>
+							</div>
+							<ul class="member-involve-list">
+								<div><button class="mybutton add-handler" data-something="involver">+</button></div>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<footer class="creator-footer">
+					<div class="btn-wrap">
+						<button class="btn" onclick="test()" disabled="disabled" id="task-btn">创建</button>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<div class="dropdown aBoard" id="member-dropdown" data-something="member" style="display: none;">
+			<div class="dropdown-container member-menu member-menu-component">
+				<div class="member-menu-component member-menu-body">
+					<div class="search-input-wrap">
+						<div class="search-wrap">
+							<input class="search-input" placeholder="搜索" />
+						</div>
+					</div>
+					<div class="member-section">
+						<ul class="member-list">
+							<li class="select-group">
+								<div class="option-group-label">项目组1</div>
+								<ul>
+									<li class="member-list-item">
+										<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+										<div class="item-content-wrap">
+											<div class="item-main">
+												<div class="item-name">成员某</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dropdown aBoard" id="project-dropdown" data-something="project" style="display: none;">
+			<div class="dropdown-container">
+				<div class="project-select-dropdown">
+					<div class="member-menu member-menu-component member-menu-body project-select-dropdown">
+						<div class="search-input-wrap">
+							<div class="search-wrap">
+								<input class="search-input" placeholder="搜索" />
+							</div>
+						</div>
+						<div class="member-section">
+							<ul class="member-list">
+								<li class="select-group">
+									<div class="option-group-label">项目分组</div>
+									<ul>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										
+									</ul>
+								</li>
+								<li class="select-group">
+									<div class="option-group-label">项目分组</div>
+									<ul>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										<li class="member-list-item">
+											<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+											<div class="item-content-wrap">
+												<div class="item-main">
+													<div class="item-name">项目</div>
+												</div>
+											</div>
+										</li>
+										
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dropdown aBoard" id="member-dropdown" data-something="involver" style="display: none;">
+			<div class="dropdown-container member-menu member-menu-component">
+				<div class="member-menu-component member-menu-body">
+					<div class="search-input-wrap">
+						<div class="search-wrap">
+							<input class="search-input" placeholder="搜索" />
+						</div>
+					</div>
+					<div class="member-section">
+						<ul class="member-list">
+							<li class="select-group">
+								<div class="option-group-label">项目组1</div>
+								<ul>
+									<li class="member-list-item">
+										<span class="avator item-img-avator" style="background-image:url(img/executor.png) ;"></span>
+										<div class="item-content-wrap">
+											<div class="item-main">
+												<div class="item-name">成员某</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			/*
 		var resizeTime = 0;
 		window.addEventListener("resize", function(){
 			if(resizeTime%2==0){
@@ -358,61 +652,86 @@
 			resizeTime++;
 });
 		*/
-		let lis = document.querySelectorAll('.tabs-bar-scroll>ul>li');
-		for (var i = 0; i < lis.length; i++) {
-			lis[i].onclick = function(event) {
-				var indexOf = 0;							
-				let li = document.getElementsByClassName('active')[0];
-				li.classList.remove('active');
-				x = event.target;
-				x.classList.add('active');
-				indexOf = x.id;
-				let pane = document.getElementsByClassName('tabs-tabpane');
-				for(var j=0;j<pane.length;j++){
-					pane[j].classList.remove('active');
-					pane[j].classList.add('hidden')
+			let lis = document.querySelectorAll('.tabs-bar-scroll>ul>li');
+			for (var i = 0; i < lis.length; i++) {
+				lis[i].onclick = function(event) {
+					var indexOf = 0;
+					let li = document.getElementsByClassName('active')[0];
+					li.classList.remove('active');
+					x = event.target;
+					x.classList.add('active');
+					indexOf = x.id;
+					let pane = document.getElementsByClassName('tabs-tabpane');
+					for (var j = 0; j < pane.length; j++) {
+						pane[j].classList.remove('active');
+						pane[j].classList.add('hidden')
+					}
+					pane[indexOf].classList.remove('hidden');
+					pane[indexOf].classList.add('active');
 				}
-				pane[indexOf].classList.remove('hidden');
-				pane[indexOf].classList.add('active');
 			}
-		}
-		
-		var tasktextarea = document.getElementById("task-editor");
-		tasktextarea.onkeyup = function(){
-			var str = tasktextarea.innerText;
-			
-			var taskbtn = document.getElementById("task-btn");
-			if(str.length>0&&!str.match(/^[ ]*$/)){
-				taskbtn.removeAttribute("disabled");
-			}else{
-				taskbtn.setAttribute("disabled","disabled");
+
+			$(document).ready(function() {
+				var tasktextarea = document.getElementById("task-editor");
+				tasktextarea.onkeyup = function() {
+					var str = tasktextarea.innerText;
+
+					var taskbtn = document.getElementById("task-btn");
+					if (str.length > 0 && !str.match(/^[ ]*$/)) {
+						taskbtn.removeAttribute("disabled");
+					} else {
+						taskbtn.setAttribute("disabled", "disabled");
+					}
+				}
+				
+				function stopBubble(e){  
+						    if(e && e.stopPropagation){
+						      e.stopPropagation();  //w3c
+							}else{
+						      window.event.cancelBubble=true; //IE
+						    }
+						}
+			$('.mybutton').click(function(event){
+			    $('div[data-something=' + $(this).data('something') + ']').toggle();
+				console.log($(this).data('somthing'));
+				stopBubble(event);
+				$(document).bind("click",function(e){ 
+				var target = $(e.target); 
+				if(target.closest(".aBoard").length == 0){ 
+				$(".aBoard").hide(); 
+				} 
+				}) 
+			});
+			});
+			/*
+			function e(obj){
+				return document.getElementById(obj);
 			}
-		}
+			e('memberselect').onclick=function(event){
+			    e('member-dropdown').style.display='block';
+				
+			    stopBubble(event); 
+			    document.onclick=function(){
+					e('member-dropdown').style.display='none';
+			　		document.onclick=null;　
+					
+			    }
+			}
+			  
+			e('member-dropdown').onclick=function(event){
+			    stopBubble(event); 
+			}
+			*/
 		
-		function e(obj){
-			return document.getElementById(obj);
-		}
-		e('memberselect').onclick=function(event){
-		    e('member-dropdown').style.display='block';
-		    stopBubble(event); 
-		    document.onclick=function(){
-				e('member-dropdown').style.display='none';
-		　		document.onclick=null;　
-		    }
-		}
-		  
-		e('member-dropdown').onclick=function(event){
-		    stopBubble(event); 
-		}
-		function stopBubble(e){  
-		    if(e && e.stopPropagation){
-		      e.stopPropagation();  //w3c
-			}else{
-		      window.event.cancelBubble=true; //IE
-		    }
-		}
 		</script>
+
+		<div style="display: none;" id="infospace"></div>
+	</body>
+	<script>
+		$(".card-grid").on("click", ".card-container", function() {
+			$(".card-grid").html("");
+			var hello = $(this).text();
+			$(".card-grid").html(hello);
+		});
 	</script>
-	<div style="display: none;" id="infospace"></div>
-</body>
 </html>
